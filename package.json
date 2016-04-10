@@ -2,7 +2,7 @@
   "name": "grunt-blok",
   "description": "Grunt plug-in for publishing Blok theme templates and assets.",
   "version": "0.0.1",
-  "homepage": "https://github.com/onefriendaday/grunt-blok",
+  "homepage": "https://github.com/storyblok/grunt-blok",
   "author": {
     "name": "Alexander Feiglstorfer",
     "email": "delooks@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/onefriendaday/grunt-blok.git"
+    "url": "git://github.com/storyblok/grunt-blok.git"
   },
   "bugs": {
-    "url": "https://github.com/onefriendaday/grunt-blok/issues"
+    "url": "https://github.com/storyblok/grunt-blok/issues"
   },
   "licenses": [
     {
       "type": "BSD-3-Clause",
-      "url": "https://github.com/onefriendaday/grunt-blok/blob/master/LICENSE"
+      "url": "https://github.com/storyblok/grunt-blok/blob/master/LICENSE"
     }
   ],
   "main": "Gruntfile.js",
