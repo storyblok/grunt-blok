@@ -1,0 +1,49 @@
+{
+  "name": "grunt-blok",
+  "description": "Grunt plug-in for publishing Blok theme templates and assets.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/onefriendaday/grunt-blok",
+  "author": {
+    "name": "Alexander Feiglstorfer",
+    "email": "delooks@gmail.com",
+    "url": "http://m2hero.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/onefriendaday/grunt-blok.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onefriendaday/grunt-blok/issues"
+  },
+  "licenses": [
+    {
+      "type": "BSD-3-Clause",
+      "url": "https://github.com/onefriendaday/grunt-blok/blob/master/LICENSE"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "peerDependencies": {
+    "grunt-contrib-watch": ">=0.4.4",
+    "grunt": "~0.4.1",
+    "growl": "~1.7"
+  },
+  "devDependancies": {
+    "grunt-contrib-jshint": "~0.1.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "storyblok",
+    "storeblok"
+  ],
+  "dependencies": {
+    "async": "~0.2.9",
+    "isbinaryfile": "~2.0.0",
+    "unirest": "~0.4.2"
+  },
+  "devDependencies": {
+    "grunt-release": "~0.7.0"
+  }
+}
