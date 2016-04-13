@@ -181,14 +181,13 @@ module.exports = function(grunt) {
         }*/
 
         var key = blok._makeAssetKey(filepath),
-            isBinary = isBinaryFile(filepath),
+            isBinary = isBinaryFile(filepath) || key.indexOf('assets/') > -1,
             props = {
                 filepath: key
             },
             contents;
 
         contents = grunt.file.read(filepath, { encoding: isBinary ? null : 'utf8' });
-        blok.notify('Uploading "'+ key +'"');
 
         if (isBinary) {
             props.attachment = contents.toString('base64');
@@ -202,10 +201,10 @@ module.exports = function(grunt) {
             } else if (!res.error) {
             	blok.notify('File "' + key + '" uploaded.');
             }
-
             done(res.error);
         }
-
+        
+        grunt.log.ok('[grunt-blok] - Starts upload of ' + key);
         blok._apiCall('PUT', props, onUpdate);
     };
 
