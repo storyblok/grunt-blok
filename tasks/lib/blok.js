@@ -181,7 +181,7 @@ module.exports = function(grunt) {
         }*/
 
         var key = blok._makeAssetKey(filepath),
-            isBinary = isBinaryFile(filepath) || key.indexOf('assets/') > -1,
+            isBinary = isBinaryFile(filepath),
             props = {
                 filepath: key
             },
@@ -193,13 +193,18 @@ module.exports = function(grunt) {
             props.attachment = contents.toString('base64');
         } else {
             props.body = contents.toString();
+
+            if (key.indexOf('.js') > -1 || key.indexOf('.css') > -1) {
+                blok.notify('Found js/css.');
+                props.type = 'asset';
+            }
         }
 
         function onUpdate(res) {
             if (res.error) {
-            	blok.notify('Error uploading file ' + JSON.stringify(res.error), true);
+                blok.notify('Error uploading file ' + JSON.stringify(res.body), true);
             } else if (!res.error) {
-            	blok.notify('File "' + key + '" uploaded.');
+                blok.notify('File "' + key + '" uploaded.');
             }
             done(res.error);
         }
@@ -209,8 +214,8 @@ module.exports = function(grunt) {
     };
 
     blok._apiCall = function(method, props, callback) {
-    	var themeId = blok._getThemeId();
-    	var config = grunt.config('blok');
+        var themeId = blok._getThemeId();
+        var config = grunt.config('blok');
         var req = unirest(method, 'http://' + config.options.url + '/api-v1/theme/' + themeId);
 
         req.headers({
