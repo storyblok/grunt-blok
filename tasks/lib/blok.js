@@ -194,8 +194,11 @@ module.exports = function(grunt) {
         } else {
             props.body = contents.toString();
 
-            if (key.indexOf('.js') > -1 || key.indexOf('.css') > -1) {
-                blok.notify('Found js/css.');
+            var keyParts = key.split('.');
+            var lastPart = keyParts[keyParts.length - 1];
+
+            if (['js', 'css', 'svg'].indexOf(lastPart) > -1) {
+                blok.notify('Found js/css/svg');
                 props.type = 'asset';
             }
         }
